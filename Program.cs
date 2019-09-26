@@ -11,7 +11,7 @@ namespace search_list
             var searchable = new List<int>(); 
             for (int i = 0; i < 1000; i++)
             {
-                searchable.Add(rnd.Next(-100,100));
+                searchable.Add(rnd.Next(-10,10));
             }
 
             var searcher = new LINQSearcher(searchable);

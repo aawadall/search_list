@@ -20,14 +20,16 @@ namespace search_list
         /// Searches for unique positive complements to negative elements in searchable 
         /// </summary>
         /// <returns>unique list of positive numbers from searchable</returns>
-        public List<int> FindPositiveComplements() 
+        public IEnumerable<int> FindPositiveComplements() 
         {
-            var result = this.searchable.Where(e => e < 0);
+            var result = this.searchable.Distinct().Where(a => this.searchable.Where(b => b == -a).Any() && a > 0);
+            
             foreach (var item in result)
             {
                 System.Console.WriteLine($"{item}");
             } 
-            return (List<int>)result;
+            
+            return result;
         }
     }
 }
