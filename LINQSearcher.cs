@@ -26,7 +26,7 @@ namespace search_list
             
             foreach (var item in result)
             {
-                System.Console.WriteLine($"{item}");
+                System.Console.WriteLine($"Item Found = {item}, Negative Complement Exist? {this.searchable.Any(x => x == -item)}");
             } 
             
             return result;
