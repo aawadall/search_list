@@ -22,7 +22,12 @@ namespace search_list
         /// <returns>unique list of positive numbers from searchable</returns>
         public IEnumerable<int> FindPositiveComplements() 
         {
-            var result = this.searchable.Distinct().Where(a => this.searchable.Where(b => b == -a).Any() && a > 0);
+            var result = this.searchable    // List to scan
+                            .Distinct()     // Filter out duplicates
+                            .Where(a => 
+                                this.searchable.Where(b => b == -a) // Look for the complement
+                                    .Any() 
+                                    && a > 0); // +ve values only
             
             foreach (var item in result)
             {

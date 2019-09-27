@@ -9,9 +9,9 @@ namespace search_list
         {
             Random rnd = new Random();
             var searchable = new List<int>(); 
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 100000000; i++)
             {
-                searchable.Add(rnd.Next(-100,100));
+                searchable.Add(rnd.Next(-10000,10000));
             }
 
             var searcher = new LINQSearcher(searchable);
